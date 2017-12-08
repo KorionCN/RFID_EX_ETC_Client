@@ -1,0 +1,15 @@
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\bin\Debug\RFID_EX_ETC_Client.exe.config
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\bin\Debug\RFID_EX_ETC_Client.exe
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\bin\Debug\RFID_EX_ETC_Client.pdb
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.csprojResolveAssemblyReference.cache
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.Properties.Resources.resources
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.csproj.GenerateResource.Cache
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.csproj.CoreCompileInputs.cache
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.exe
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.pdb
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.CheckMoreForm.resources
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.MainForm.resources
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\obj\Debug\RFID_EX_ETC_Client.SettingForm.resources
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\bin\Debug\Newtonsoft.Json.dll
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\bin\Debug\Newtonsoft.Json.pdb
+D:\Microsoft VS WorkSpace\RFID_EX_ETC_Client\RFID_EX_ETC_Client\bin\Debug\Newtonsoft.Json.xml
