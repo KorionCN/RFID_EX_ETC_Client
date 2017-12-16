@@ -16,7 +16,7 @@ namespace RFID_EX_ETC_Client {
         }
 
         private void btn_save_Click(object sender, EventArgs e) {
-            string statName = btn_save.Text.Trim();
+            string statName = tb_StatName.Text.Trim();
             if (!"".Equals(statName)) {
                 GlobalVar.StatName = statName;
             }

@@ -32,5 +32,10 @@ namespace AppUnitTest {
         public void TestMethod4() {
             UnitTest.TestGetHistoryRouteInfo();
         }
+
+        [TestMethod]
+        public void TestMethod5() {
+            UnitTest.TestPostRouteInfo();
+        }
     } 
 };

@@ -33,5 +33,18 @@ namespace RFID_EX_ETC_Client.Model {
                 Console.WriteLine(temp.ToJson());
             }
         }
+
+        public static void TestPostRouteInfo() {
+            RouteInfo routeInfo = new RouteInfo() {
+                TagId = "48022323131",
+                StartStat = "A",
+                StartTime = "456152",
+                EndStat = "B",
+                EndTime = "1112313",
+                Distance = 12
+                
+            };
+            Result<string> r = mainModel.PostRouteInfoAsync(routeInfo, true).Result;
+        }
     }
 }

@@ -44,9 +44,9 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(209, 19);
+            this.btn_save.Location = new System.Drawing.Point(209, 18);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.Size = new System.Drawing.Size(75, 25);
             this.btn_save.TabIndex = 2;
             this.btn_save.Text = "保存";
             this.btn_save.UseVisualStyleBackColor = true;
