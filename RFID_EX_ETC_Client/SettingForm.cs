@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace RFID_EX_ETC_Client {
     public partial class SettingForm : Form {
+
+        private static readonly string FORM_TITLE = "设置";
         public SettingForm() {
             InitializeComponent();
         }
@@ -22,7 +24,10 @@ namespace RFID_EX_ETC_Client {
             }
         }
 
-        private void SettingForm_Load(object sender, EventArgs e) => tb_StatName.Text = GlobalVar.StatName;
+        private void SettingForm_Load(object sender, EventArgs e) {
+            this.Text = FORM_TITLE;
+            tb_StatName.Text = GlobalVar.StatName;
+        }
 
     }
 }

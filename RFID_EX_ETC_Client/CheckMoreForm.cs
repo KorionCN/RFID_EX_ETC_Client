@@ -79,7 +79,7 @@ namespace RFID_EX_ETC_Client {
             if (isSuccess) {
                 LoadData2DataList(list);
             } else {
-
+                ShowMessageBox(message);
             }
         }
 
@@ -89,6 +89,7 @@ namespace RFID_EX_ETC_Client {
                 this.Invoke(new LoadData2DataListDelegate(LoadData2DataList), dataList);
             } else {
                 this.ls_dataList.BeginUpdate();   //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度  
+                this.ls_dataList.Clear();
                 foreach (HistoryRouteInfo temp in dataList) {
                     ListViewItem item = new ListViewItem();
                     item.Text = temp.StartStat;
@@ -103,6 +104,15 @@ namespace RFID_EX_ETC_Client {
             }
             
         }
-        
+
+        private delegate void ShowMessageBoxDelegate(string msg);
+        private void ShowMessageBox(string msg) {
+            if (this.InvokeRequired) {
+                this.Invoke(new ShowMessageBoxDelegate(ShowMessageBox), msg);
+            } else {
+                MessageBox.Show(msg, "提示");
+            }
+        }
+
     }
 }

@@ -26,6 +26,7 @@
             this.tb_CarTagID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Flash = new System.Windows.Forms.Button();
             this.tb_DataBits = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_ComState = new System.Windows.Forms.Button();
@@ -87,6 +88,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_Flash);
             this.groupBox1.Controls.Add(this.tb_DataBits);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btn_ComState);
@@ -106,6 +108,17 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "串口参数";
+            // 
+            // btn_Flash
+            // 
+            this.btn_Flash.BackgroundImage = global::RFID_EX_ETC_Client.Properties.Resources.flush;
+            this.btn_Flash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Flash.Location = new System.Drawing.Point(81, 19);
+            this.btn_Flash.Name = "btn_Flash";
+            this.btn_Flash.Size = new System.Drawing.Size(23, 23);
+            this.btn_Flash.TabIndex = 13;
+            this.btn_Flash.UseVisualStyleBackColor = true;
+            this.btn_Flash.Click += new System.EventHandler(this.btn_Flash_Click);
             // 
             // tb_DataBits
             // 
@@ -477,6 +490,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "ETC客户端";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -530,6 +544,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btn_more;
+        private System.Windows.Forms.Button btn_Flash;
     }
 }
 

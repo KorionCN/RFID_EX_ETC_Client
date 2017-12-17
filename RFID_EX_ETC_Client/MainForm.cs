@@ -15,11 +15,15 @@ namespace RFID_EX_ETC_Client {
 
         public MainForm() {
             InitializeComponent();
-            InitConfig();
-            service = new MainService();
         }
 
-        private void InitConfig() {
+        private void MainForm_Load(object sender, EventArgs e) {
+            service = new MainService();
+            InitView();
+        }
+
+        private void InitView() {
+            this.Text = GlobalVar.APP_NAME;
             //获取所有串口设备
             string[] ports = SerialPort.GetPortNames();
             foreach (string port in ports) {
@@ -30,18 +34,18 @@ namespace RFID_EX_ETC_Client {
                 MessageBox.Show("没有发现任何串口设备", "错误");
                 System.Environment.Exit(0);
             }
-           //设置默认串口
-           cb_ComNum.SelectedIndex = 0;
-           //初始化默认串口 
-           InitSerialPort();
-           ShowSerialPortInfo();
+            //设置默认串口
+            cb_ComNum.SelectedIndex = 0;
+            //初始化默认串口 
+            InitSerialPort();
+            ShowSerialPortInfo();
         }
 
         private void InitSerialPort() {
             string defaultCom = cb_ComNum.SelectedItem.ToString();
             LogUtil.WriteLine("默认串口号:" + defaultCom);
             //初始化串口对象
-           
+
             serialPort = new SerialPort(defaultCom);
             serialPort.ReadTimeout = 500;
             //注册串口监听事件
@@ -54,7 +58,7 @@ namespace RFID_EX_ETC_Client {
 
         //阅读器接收到数据时，回调此函数
         private void ComDataReceived(object sender, SerialDataReceivedEventArgs e) {
-           
+
             StringBuilder sb = new StringBuilder("");
             //读取来自阅读器的数据
             int data = serialPort.ReadByte();
@@ -74,14 +78,15 @@ namespace RFID_EX_ETC_Client {
             service.TagId = result;
             //获取车辆信息
             service.GetCarInfo(result, GetCarInfoDele);
-            service.GetRouteInfo(result, GetRouteInfoDele);
+
         }
 
         private void GetCarInfoDele(bool isSuccess, string message, CarInfo carInfo) {
             if (isSuccess) {
                 ShowCarInfo(carInfo);
+                service.GetRouteInfo(carInfo.TagId, GetRouteInfoDele);
             } else {
-                
+                ShowMessageBox(message);
             }
         }
 
@@ -89,14 +94,14 @@ namespace RFID_EX_ETC_Client {
             if (isSuccess) {
                 ShowRouteInfo(routeInfo);
             } else {
-
+                ShowMessageBox(message);
             }
         }
 
         /**
          * UI更新显示
          * **********************************************************************************/
-
+        
 
         private delegate void SetBtnComStateTextDelegate(bool isOpen);
         private void SetBtnComStateText(bool isOpen) {
@@ -117,7 +122,7 @@ namespace RFID_EX_ETC_Client {
         private void SetTagID2UI(string result) {
             if (tb_CarTagID.InvokeRequired) {
                 SetTagID2UIDelegate dele = new SetTagID2UIDelegate(SetTagID2UI);
-                this.Invoke(dele, result);   
+                this.Invoke(dele, result);
             } else {
                 tb_CarTagID.Text = result;
             }
@@ -129,7 +134,7 @@ namespace RFID_EX_ETC_Client {
                 this.Invoke(new ShoaCarInfoDelegate(ShowCarInfo), carInfo);
             } else {
                 tb_CarInfo.Text = "";
-                tb_CarInfo.AppendText("车牌号:"+carInfo.PlateNum+"\r\n");
+                tb_CarInfo.AppendText("车牌号:" + carInfo.PlateNum + "\r\n");
                 tb_CarInfo.AppendText("车型:" + carInfo.Type + "\r\n");
                 tb_CarInfo.AppendText("发动机号:" + carInfo.EngineNum + "\r\n");
             }
@@ -151,9 +156,16 @@ namespace RFID_EX_ETC_Client {
                 tb_UnitCost.Text = unitCost.ToString("F2");
                 tb_Total.Text = cost.ToString("F2");
             }
-
         }
-   
+
+        private delegate void ShowMessageBoxDelegate(string msg);
+        private void ShowMessageBox(string msg) {
+            if (this.InvokeRequired) {
+                this.Invoke(new ShowMessageBoxDelegate(ShowMessageBox), msg);
+            } else {
+                MessageBox.Show(msg, "提示");
+            }
+        }
 
         //更新串口信息
         private void ShowSerialPortInfo() {
@@ -256,5 +268,17 @@ namespace RFID_EX_ETC_Client {
                 return false;
             }
         }
+
+        private void btn_Flash_Click(object sender, EventArgs e) {
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string port in ports) {
+                cb_ComNum.Items.Add(port);
+            }
+            if (cb_ComNum.Items.Count > 0) {
+                cb_ComNum.SelectedIndex = 0;
+            }
+        }
+
+        
     }
 }
